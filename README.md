@@ -1,12 +1,12 @@
-npm init
-tsc --init
-npm install inquirer
-npm install --save-dev @types/inquirer
-npm install uuid
-npm install --save-dev @types/uuid
-npm install chalk
-npm install validator
-npm i --save-dev @types/validator
+1. npm init
+2. tsc --init
+3. npm install inquirer
+4. npm install --save-dev @types/inquirer
+5. npm install uuid
+6. npm install --save-dev @types/uuid
+7. npm install chalk
+8. npm install validator
+9. npm i --save-dev @types/validator
 
 # NPM publish
 
