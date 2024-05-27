@@ -37,8 +37,8 @@ export class TicketService {
       { type: 'input', name: 'name', message: 'Enter your name:' },
       { type: 'input', name: 'email', message: 'Enter your email:' },
       { type: 'input', name: 'cardNumber', message: 'Enter your credit card number:' },
-      // { type: 'input', name: 'expiration', message: 'Enter card expiration date (MM/YY):' },
-      // { type: 'input', name: 'cvv', message: 'Enter card CVV:' }
+      { type: 'input', name: 'expiration', message: 'Enter card expiration date (MM/YY):' },
+      { type: 'input', name: 'cvv', message: 'Enter card CVV:' }
     ]);
 
     console.log(chalk.blueBright.bold('\nProcessing payment...\n'));
