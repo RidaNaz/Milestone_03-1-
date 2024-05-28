@@ -5,33 +5,43 @@ import validator from 'validator';
 export class UserService {
     users = [];
     async signup() {
-        const answers = await inquirer.prompt([
-            { type: 'input', name: 'name', message: 'Enter your name:' },
-            { type: 'input', name: 'email', message: 'Enter your email:' },
-            { type: 'password', name: 'password', message: 'Enter your password:' }
-        ]);
         // validating input data
-        if (!answers.name || answers.name.trim().length === 0) {
-            console.log(chalk.redBright.bold('\nName cannot be empty.\n'));
-            return this.signup();
+        while (true) {
+            var { name } = await inquirer.prompt({ type: 'input', name: 'name', message: 'Enter your name:' });
+            if (!name || name.trim().length === 0) {
+                console.log(chalk.redBright.bold('\nName cannot be empty.\n'));
+            }
+            else {
+                break;
+            }
         }
-        if (!validator.isEmail(answers.email)) {
-            console.log(chalk.redBright.bold('\nPlease enter a valid email address.\n'));
-            return this.signup();
+        while (true) {
+            var { email } = await inquirer.prompt({ type: 'input', name: 'email', message: 'Enter your email:' });
+            if (!validator.isEmail(email)) {
+                console.log(chalk.redBright.bold('\nPlease enter a valid email address.\n'));
+            }
+            else {
+                break;
+            }
         }
-        if (answers.password.length < 6) {
-            console.log(chalk.redBright.bold('\nPassword must be at least 6 characters long.\n'));
-            return this.signup();
+        while (true) {
+            var { password } = await inquirer.prompt({ type: 'password', name: 'password', message: 'Enter your password:' });
+            if (password.length < 6) {
+                console.log(chalk.redBright.bold('\nPassword must be at least 6 characters long.\n'));
+            }
+            else {
+                break;
+            }
         }
-        if (this.users.some(u => u.email === answers.email && u.password === answers.password)) {
+        if (this.users.some(u => u.email === email && u.password === password)) {
             console.log(chalk.redBright.bold('\nUser already exists, Signup again!\n'));
             return this.signup();
         }
         const user = {
             id: uuid.v4(),
-            name: answers.name,
-            email: answers.email,
-            password: answers.password,
+            name: name,
+            email: email,
+            password: password,
             isAdmin: false
         };
         this.users.push(user);

@@ -1,8 +1,20 @@
-import * as uuid from 'uuid';
 import inquirer from 'inquirer';
+import * as uuid from 'uuid';
 import chalk from 'chalk';
 export class EventService {
-    events = [];
+    events = [{
+            id: uuid.v4(),
+            title: "Dev Fest",
+            category: "Festival",
+            date: "2024-10-05",
+            time: "12:30",
+            city: "Karachi",
+            ticketStock: 200,
+            price: 1000
+        }];
+    hasEvents() {
+        return this.events.length > 0;
+    }
     async createEvent() {
         const answers = await inquirer.prompt([
             { type: 'input', name: 'title', message: 'Enter event title:' },

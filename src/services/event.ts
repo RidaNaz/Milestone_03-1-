@@ -1,5 +1,5 @@
-import * as uuid from 'uuid';
 import inquirer from 'inquirer';
+import * as uuid from 'uuid';
 import chalk from 'chalk';
 
 interface Event {
@@ -14,7 +14,20 @@ interface Event {
 }
 
 export class EventService {
-  private events: Event[] = [];
+  private events: Event[] = [{
+    id: uuid.v4(),
+  title:"Dev Fest",
+  category: "Festival",
+  date: "2024-10-05",
+  time: "12:30",
+  city: "Karachi",
+  ticketStock: 200,
+  price: 1000
+  }];
+  
+  hasEvents(): boolean {
+    return this.events.length > 0;
+  }
 
   async createEvent(): Promise<void> {
     const answers = await inquirer.prompt([
