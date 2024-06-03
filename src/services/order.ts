@@ -20,7 +20,7 @@ interface Order {
     this.orders.push(order);
   }
 
-  getOrdersByUserId(userId: string): Order[] {
+  getOrdersById(userId: string): Order[] {
     return this.orders.filter(order => order.userId === userId);
   }
 }

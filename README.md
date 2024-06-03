@@ -12,7 +12,7 @@
 
 * Add `#!/usr/bin/env node` only in *index.ts*.
 * Add `"include": ["src/**/*"]`, below the compiler option in *tsconfig.json*.
-* Add `"bin": { "milestone_03-rida_naz": "dist/index.js }` in *package.json*.
+* Add `"bin": { "milestone_03-rida_naz": "dist/index.js" }` in *package.json*.
 * Add `"build": "tsc"` under `scripts` in *package.json*.
 * Update `"main": "dist/index.js",` in *package.json*.
 * Run `tsc` & `npm run build`.

@@ -10,7 +10,7 @@ export class OrderService {
         };
         this.orders.push(order);
     }
-    getOrdersByUserId(userId) {
+    getOrdersById(userId) {
         return this.orders.filter(order => order.userId === userId);
     }
 }

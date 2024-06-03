@@ -72,7 +72,7 @@ async function userMenu(user: { id: string; name: string; email: string; passwor
         await ticketService.purchaseTickets(user.id);
         break;
       case 'View Order History':
-        const orders = orderService.getOrdersByUserId(user.id)
+        const orders = orderService.getOrdersById(user.id)
 
         if (orders.length === 0) {
           console.log(chalk.redBright.bold("\nYou have'nt order yet!\n"));

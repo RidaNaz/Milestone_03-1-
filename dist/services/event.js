@@ -131,7 +131,7 @@ export class EventService {
             message: 'Choose a category to browse events:',
             choices: categories,
         });
-        this.filterAndDisplayEvents('category', chosenCategory);
+        this.filterEvents('category', chosenCategory);
     }
     async eventsCity() {
         const cities = Array.from(new Set(this.events.map(event => event.city)));
@@ -141,9 +141,9 @@ export class EventService {
             message: 'Choose a city to browse events:',
             choices: cities,
         });
-        this.filterAndDisplayEvents('city', chosenCity);
+        this.filterEvents('city', chosenCity);
     }
-    filterAndDisplayEvents(option, chosenValue) {
+    filterEvents(option, chosenValue) {
         console.log(chalk.blueBright.bold(`\nEvents in ${option === 'category' ? 'category' : 'city'} "${chosenValue}":\n`));
         const filteredEvents = this.events.filter(event => option === 'category' ? event.category === chosenValue : event.city === chosenValue);
         if (filteredEvents.length === 0) {

@@ -156,7 +156,7 @@ export class EventService {
       choices: categories,
     });
 
-    this.filterAndDisplayEvents('category', chosenCategory);
+    this.filterEvents('category', chosenCategory);
   }
 
   async eventsCity(): Promise<void> {
@@ -169,10 +169,10 @@ export class EventService {
       choices: cities,
     });
 
-    this.filterAndDisplayEvents('city', chosenCity);
+    this.filterEvents('city', chosenCity);
   }
 
-  private filterAndDisplayEvents(option: 'category' | 'city', chosenValue: string): void {
+  private filterEvents(option: 'category' | 'city', chosenValue: string): void {
     console.log(chalk.blueBright.bold(`\nEvents in ${option === 'category' ? 'category' : 'city'} "${chosenValue}":\n`));
     const filteredEvents = this.events.filter(event => option === 'category' ? event.category === chosenValue : event.city === chosenValue);
     if (filteredEvents.length === 0) {
