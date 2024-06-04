@@ -27,8 +27,8 @@ export class TicketService {
                 return;
             }
             while (true) {
-                const { name } = await inquirer.prompt({ type: 'input', name: 'name', message: 'Enter your name:' });
-                if (!name || name.trim().length === 0) {
+                var user = await inquirer.prompt({ type: 'input', name: 'name', message: 'Enter your name:' });
+                if (!user.name || user.name.trim().length === 0) {
                     console.log(chalk.redBright.bold('\nProvide a valid name\n'));
                 }
                 else {
@@ -83,7 +83,7 @@ export class TicketService {
                 console.log(chalk.blueBright.bold('|==============================================|'));
                 console.log(chalk.greenBright.bold(`           ${event.title}  Ticket             `));
                 console.log(chalk.blueBright.bold('|==============================================|\n'));
-                console.log(chalk.greenBright.bold(`       Name :    ${name}  `));
+                console.log(chalk.greenBright.bold(`       Name :    ${user.name}  `));
                 console.log(chalk.greenBright.bold(`       Date :    ${event.date}  `));
                 console.log(chalk.greenBright.bold(`       Time :    ${event.time}  `));
                 console.log(chalk.greenBright.bold(`       City :    ${event.city}  `));

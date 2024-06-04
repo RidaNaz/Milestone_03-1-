@@ -81,10 +81,11 @@ async function userMenu(user: { id: string; name: string; email: string; passwor
           console.log(chalk.greenBright.bold(`        Order History of ${user.name}:        `));
           console.log(chalk.blueBright.bold('|==============================================|'))
           orders.forEach(order => {
-            console.log(chalk.blueBright.bold(`       Event:   ${order.eventName}\n`));
-            console.log(chalk.greenBright.italic(`        Ticket:   ${order.quantity}`));
-            console.log(chalk.greenBright.italic(`        Total Price:   ${order.totalPrice}`));
-            console.log(chalk.blueBright.bold('|==============================================|\n'))
+            console.log(chalk.blueBright.bold(`\n\t\tEvent: \t${order.eventName}\n`));
+            console.log(chalk.greenBright.italic(`\tTicket holder:\t${user.name}`));
+            console.log(chalk.greenBright.italic(`\tTicket:\t\t${order.quantity}`));
+            console.log(chalk.greenBright.italic(`\tTotal Price:\t${order.totalPrice}`));
+            console.log(chalk.blueBright.bold('|==============================================|'))
           });
         }
         break;
